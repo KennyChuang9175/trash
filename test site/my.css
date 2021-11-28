@@ -1,0 +1,12 @@
+table, td, th {
+	border-collapse: collapse;
+	border: 3px solid #CE0000;
+	font-family: Consolas, 微軟正黑體;
+}
+
+th {
+	background-color: #00DB00; /* grey = gray */
+}
+.blue {
+	color: blue;
+}

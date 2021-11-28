@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>個人簡歷</title>
+	<link rel="stylesheet" href="my.css" />
+</head>
+<body>
+<h1 id="myName">鄭中川 thu109123</h1>
+<h2>興趣</h2>
+<ol>
+    <li>看布袋戲</li>
+    <li>看電影</li>
+    <li>電玩遊戲</li>
+</ol>
+<h2>簡歷</h2>
+<p>
+    <ol>
+        <li>可獨立完成Web及Windows系統</li>
+        <li><em style="color: red; text-decoration: overline">擔任專案經理</em> 並與團隊一起完成專案</li>
+        <li>
+            人生中最棒的經歷：
+            <ul>
+                <li>童軍團</li>
+                <li>替代役在澎湖望安將軍村待11個月</li>
+                <li>照顧小孩</li>
+            </ul>
+        </li>
+    </ol>
+</p>
+<h2>未來目標</h2>
+<table id="myTable">
+    <thead>
+        <tr>
+            <th>學科名稱</th>
+            <th>內容</th>
+            <th>學科名稱</th>
+            <th>內容</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>PowerBI</td>
+            <td>Vue 3 - Vue.js</td>
+            <td>室內弱電</td>
+            <td>PCB焊接</td>
+        </tr>
+        <tr>
+            <td>資料視覺化</td>
+            <td>最愛的Web前端架構的最新版</td>
+            <td>居家維修</td>
+            <td>自己DIY鍵鼠</td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    <button id="switchColor" type="button">用class切換顏色</button>
+    <button id="showDiv" type="button">顯示Div</button>
+    <button id="removeDiv" type="button">移除Div</button>
+</p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function() {
+        /*不建議直接操作css(style), 應用class(https://www.w3schools.com/jquery/jquery_css_classes.asp)*/
+        $('#switchColor').click(function() {
+            $("#myName").toggleClass("blue");
+        });
+        $('#showDiv').click(function() {
+            let mySkill = ["通靈", "軟體系統分析與設計", "SQL Server", ".Net程式設計", "Vue.js程式設計"];
+            let mySkillStr = "<div class=\"myDiv\"><h2>技能</h2><ul>";
+            for (let s of mySkill) {
+                mySkillStr += "<li>" + s + "</li>";
+            }
+            mySkillStr += "</ul></div>";
+            $(mySkillStr).insertAfter("#myTable");
+        });
+        $('#removeDiv').click(function() {
+            //alert($("#myTable ~ .myDiv").length);
+            //console.log($("#myTable ~ .myDiv").length);
+            $("#myTable ~ .myDiv:first").remove();
+        });
+    });
+</script>
+</body>
+</html>
